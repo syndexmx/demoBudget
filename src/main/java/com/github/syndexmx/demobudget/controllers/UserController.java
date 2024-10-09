@@ -28,7 +28,10 @@ public class UserController {
             @RequestBody UserDto userDto) {
         User user = UserDtoToUser(userDto);
         user.setUserName(userName);
-        // TO DO Check if already exists
+        if (userService.isPresent(userName)) {
+            final ResponseEntity alreadyExistsResponse = new ResponseEntity(HttpStatus.NOT_MODIFIED);
+            return alreadyExistsResponse;
+        }
         final User savedUser = userService.create(user);
         final ResponseEntity response = new ResponseEntity(UserToUserDto(user), HttpStatus.CREATED);
         return response;
