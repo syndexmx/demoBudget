@@ -9,6 +9,8 @@ import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
 
+import static com.github.syndexmx.demobudget.domain.TestDataUser.testUser;
+import static com.github.syndexmx.demobudget.domain.TestDataUser.testUserEntity;
 import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.ArgumentMatchers.eq;
 import static org.mockito.Mockito.when;
@@ -24,14 +26,8 @@ class UserServiceImplTest {
 
     @Test
     public void testThatUserIsSaved() {
-        final User user = User.builder()
-                .userName("JohnConnor")
-                .email("connorj85@gmail.com")
-                .build();
-        final UserEntity userEntity = UserEntity.builder()
-                .userName("JohnConnor")
-                .email("connorj85@gmail.com")
-                .build();
+        final User user = testUser;
+        final UserEntity userEntity = testUserEntity;
         when(userRepository.save(eq(userEntity))).thenReturn(userEntity);
         final User resultUser = underTest.create(user);
         assertEquals(user, resultUser);
