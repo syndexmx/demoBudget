@@ -1,7 +1,7 @@
 spring.application.name=demobudget
 
 #DataSource
-spring.datasource.url=jdbc:mysql://localhost:3306/fisher?autoReconnect=true&useSSL=false
+spring.datasource.url=jdbc:mysql://localhost:3306/demobudget?autoReconnect=true&useSSL=false
 spring.datasource.username=***SQL_USER_LOGIN***
 spring.datasource.password=***SQL_USER_PASSWORD***
 
