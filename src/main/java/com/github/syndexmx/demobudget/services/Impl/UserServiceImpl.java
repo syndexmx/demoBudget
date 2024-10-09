@@ -5,6 +5,7 @@ import com.github.syndexmx.demobudget.domain.UserEntity;
 import com.github.syndexmx.demobudget.repositories.UserRepository;
 import com.github.syndexmx.demobudget.services.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Example;
 import org.springframework.stereotype.Service;
 
 @Service
@@ -24,10 +25,10 @@ public class UserServiceImpl implements UserService {
         return savedUser;
     }
 
-    //@Override
-    //public boolean isPresent(User user) {
-    //    return userRepository.exists(UserToUserEntity(user));
-    ///}
+    @Override
+    public boolean isPresent(String userName) {
+        return userRepository.findById(userName).isPresent();
+    }
 
     private UserEntity UserToUserEntity(User user) {
         return UserEntity.builder()

@@ -8,5 +8,5 @@ public interface UserService {
 
     User create(User user);
 
-    ///boolean isPresent(User user);
+    boolean isPresent(String userName);
 }
