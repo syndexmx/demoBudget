@@ -24,6 +24,11 @@ public class UserServiceImpl implements UserService {
         return savedUser;
     }
 
+    //@Override
+    //public boolean isPresent(User user) {
+    //    return userRepository.exists(UserToUserEntity(user));
+    ///}
+
     private UserEntity UserToUserEntity(User user) {
         return UserEntity.builder()
                 .userName(user.getUserName())
